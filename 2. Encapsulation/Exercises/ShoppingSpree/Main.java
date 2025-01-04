@@ -3,7 +3,7 @@ package Encapsulation.Exercises.ShoppingSpree;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
 
-public class Main
+public class Main // This task must be submitted with a package called 'ShoppingSpree'.
 {
     public static void main(String[] args)
     {
