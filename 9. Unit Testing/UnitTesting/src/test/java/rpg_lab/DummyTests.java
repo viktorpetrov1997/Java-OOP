@@ -3,7 +3,7 @@ package rpg_lab;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import softuni.rpg_lab.Dummy;
+import softuni.Lab.rpg_lab.Dummy;
 
 public class DummyTests
 {

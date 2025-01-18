@@ -1,4 +1,4 @@
-package softuni.rpg_lab;
+package softuni.Lab.rpg_lab;
 
 public interface Weapon
 {

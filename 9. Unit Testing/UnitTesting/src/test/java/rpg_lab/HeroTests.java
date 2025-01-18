@@ -3,7 +3,9 @@ package rpg_lab;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import softuni.rpg_lab.*;
+import softuni.Lab.rpg_lab.Hero;
+import softuni.Lab.rpg_lab.Target;
+import softuni.Lab.rpg_lab.Weapon;
 
 import java.util.List;
 
