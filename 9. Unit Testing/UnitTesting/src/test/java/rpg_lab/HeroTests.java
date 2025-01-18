@@ -1,7 +1,6 @@
 package rpg_lab;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import softuni.rpg_lab.*;
