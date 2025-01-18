@@ -1,43 +1,59 @@
 package rpg_lab;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import softuni.rpg_lab.Dummy;
 
 public class DummyTests
 {
+    private static final int DUMMY_HEALTH = 10;
+    private static final int DUMMY_EXPERIENCE = 10;
+    private static final int ATTACK_POINTS = 5;
+
+    private Dummy dummy;
+
+    @Before
+    public void setUpDummy()
+    {
+        this.dummy = new Dummy(DUMMY_HEALTH, DUMMY_EXPERIENCE);
+    }
+
     @Test
     public void dummyLosesHealthAfterAttack()
     {
-        Dummy dummy = new Dummy(10, 10);
+        // Act
+        dummy.takeAttack(ATTACK_POINTS);
 
-        dummy.takeAttack(5);
-
-        Assert.assertEquals(5, dummy.getHealth());
+        // Assert
+        Assert.assertEquals("Dummy health should decrease after being attacked", DUMMY_HEALTH - ATTACK_POINTS, dummy.getHealth());
     }
 
     @Test(expected = IllegalStateException.class)
     public void shouldThrowAnExceptionIfDeadDummyIsAttacked()
     {
-        Dummy dummy = new Dummy(10, 10);
-
-        dummy.takeAttack(10);
-        dummy.takeAttack(10);
+        // Act
+        dummy.takeAttack(DUMMY_HEALTH); // Dummy is now dead
+        dummy.takeAttack(ATTACK_POINTS); // Attempting a second attack should throw an exception
     }
 
     @Test
     public void deadDummyCanGiveExperience()
     {
-        Dummy dummy = new Dummy(0, 10);
+        // Arrange
+        Dummy deadDummy = new Dummy(0, DUMMY_EXPERIENCE);
 
-        dummy.giveExperience();
+        // Act
+        int experience = deadDummy.giveExperience();
+
+        // Assert
+        Assert.assertEquals("Dead dummy should give correct experience points", DUMMY_EXPERIENCE, experience);
     }
 
     @Test(expected = IllegalStateException.class)
     public void aliveDummyCannotGiveExperience()
     {
-        Dummy dummy = new Dummy(10, 10);
-
-        dummy.giveExperience();
+        // Act
+        dummy.giveExperience(); // Alive dummy should throw an exception when asked for experience
     }
 }

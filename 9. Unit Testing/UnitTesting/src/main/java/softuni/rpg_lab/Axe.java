@@ -1,6 +1,6 @@
 package softuni.rpg_lab;
 
-public class Axe
+public class Axe implements Weapon
 {
     private int attackPoints;
     private int durabilityPoints;
@@ -11,17 +11,20 @@ public class Axe
         this.durabilityPoints = durability;
     }
 
+    @Override
     public int getAttackPoints()
     {
         return this.attackPoints;
     }
 
+    @Override
     public int getDurabilityPoints()
     {
         return this.durabilityPoints;
     }
 
-    public void attack(Dummy target)
+    @Override
+    public void attack(Target target)
     {
         if(this.durabilityPoints <= 0)
         {
